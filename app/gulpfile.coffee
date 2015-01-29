@@ -44,10 +44,7 @@ paths.cssMainDist = "dist/styles/main.css"
 #################
 paths.scripts = [
     "app/scripts/main.js",
-    "app/scripts/modules/apiservice.js",
-    "app/scripts/modules/nav.js",
-    "app/scripts/modules/genres.js",
-    "app/scripts/modules/movielist.js"
+    "app/scripts/+(directives|services)/**/*"
 ]
 #################
 paths.imageMain = "app/images/*"
@@ -150,7 +147,6 @@ gulp.task "watch", ->
 gulp.task 'webserver', ->
     gulp.src(paths.dist)
         .pipe(webserver({
-            livereload: true,
             port: 8080,
             host: "localhost"
         }))

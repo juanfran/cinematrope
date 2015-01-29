@@ -1,5 +1,8 @@
-section.movie-list(ng-controller="MovieController as movie")
-    div.spinner
+section.movie-list
+    div.spinner(ng-show="vm.loading")
         img(src="svg/spinner.svg", alt="Loading")
-    div.movie-shot(ng-repeat="movie in movie.movies.results")
-        include ../components/movie
+
+    div.movie-shot(ng-repeat="movie in vm.movies")
+        img(ng-src="https://image.tmdb.org/t/p/w500/{{ ::movie.backdrop_path }}", alt="{{ ::movie.original_title }} poster")
+        h3.movie-title {{ ::movie.title }}
+        span.vote-avg {{ ::movie.vote_average }}
